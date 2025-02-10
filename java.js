@@ -1,10 +1,10 @@
 // Funkció, ami a gombra kattintva elmenti az adatokat cookie-ba
 function saveNumber() {
     // A bemeneti mezők értékei
-    var name = document.getElementById('name').value;
-    var cardNumber = document.getElementById('cardNumber').value;
-    var expiryDate = document.getElementById('expiryDate').value;
-    var cvv = document.getElementById('cvv').value;
+    const name = document.getElementById('name').value;
+    const cardNumber = document.getElementById('cardNumber').value;
+    const expiryDate = document.getElementById('expiryDate').value;
+    const cvv = document.getElementById('cvv').value;
 
     // Ellenőrizzük, hogy minden mező ki legyen töltve
     if (name && cardNumber && expiryDate && cvv) {
@@ -24,10 +24,10 @@ function saveNumber() {
 
 // Bankkártya szám formázása: minden 4 karakter után kötőjel
 document.getElementById('cardNumber').addEventListener('input', function(e) {
-    var input = e.target.value.replace(/\D/g, ''); // Csak a számokat tartja meg
-    var formatted = '';
+    const input = e.target.value.replace(/\D/g, ''); // Csak a számokat tartja meg
+    let formatted = '';
     
-    for (var i = 0; i < input.length; i++) {
+    for (let i = 0; i < input.length; i++) {
         if (i > 0 && i % 4 === 0) {
             formatted += '-';
         }
@@ -39,10 +39,10 @@ document.getElementById('cardNumber').addEventListener('input', function(e) {
 
 // Lejárati dátum formázása: minden 2. karakter után perjel
 document.getElementById('expiryDate').addEventListener('input', function(e) {
-    var input = e.target.value.replace(/\D/g, ''); // Csak a számokat tartja meg
-    var formatted = '';
+    const input = e.target.value.replace(/\D/g, ''); // Csak a számokat tartja meg
+    let formatted = '';
     
-    for (var i = 0; i < input.length; i++) {
+    for (let i = 0; i < input.length; i++) {
         if (i === 2) {
             formatted += '/';
         }
@@ -54,15 +54,15 @@ document.getElementById('expiryDate').addEventListener('input', function(e) {
 
 document.getElementById('cvv').addEventListener('input', function(e) {
     // Csak a számokat engedjük beírni
-    var input = e.target.value.replace(/\D/g, '');  // Nem numerikus karakterek eltávolítása
+    const input = e.target.value.replace(/\D/g, '');  // Nem numerikus karakterek eltávolítása
     e.target.value = input;  // Az input értékét visszaállítjuk csak számokra
 });
 
 // Funkció a cookie-k betöltéséhez és megjelenítéséhez
 function loadCookies() {
-    var cookies = document.cookie.split("; ");
+    const cookies = document.cookie.split("; ");
     cookies.forEach(function(cookie) {
-        var [key, value] = cookie.split("=");
+        const [key, value] = cookie.split("=");
         if (key === "userName") {
             document.getElementById('name').value = decodeURIComponent(value);
         } else if (key === "userCardNumber") {
