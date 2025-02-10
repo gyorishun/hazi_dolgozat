@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szám Beviteli és Cookie Tároló Oldal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Rendelés</h1>
+
+    <div class="container">
+        <label for="name">Kártyán szereplő név</label>
+        <input type="text" id="name" maxlength="50" placeholder="Add meg a neved">
+        
+        <label for="cardNumber">Bankkártya szám</label>
+        <input type="text" id="cardNumber" maxlength="19" placeholder="0000-0000-0000-0000">
+        
+        <div class="expiry-cvv">
+            <div>
+                <label for="expiryDate">Lejárat</label>
+                <input type="text" id="expiryDate" maxlength="5" placeholder="MM/YY">
+            </div>
+            <div>
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" maxlength="3" placeholder="000">
+            </div>
+        </div>
+        
+        <button onclick="saveNumber()">Mentés</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script src="java.js"></script>
+
+</body>
+</html>
+
