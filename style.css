@@ -33,7 +33,7 @@ input[type="text"] {
     font-size: 16px;
 }
 
-button {
+#mentes {
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;
@@ -42,6 +42,19 @@ button {
     font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
+    margin: 5px;
+}
+
+#betoltbutt {
+    width: 100%;
+    padding: 10px;
+    background-color: #db9719;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 5px;
 }
 
 button:hover {
@@ -63,3 +76,5 @@ button:hover {
 .expiry-cvv div {
     flex-basis: 48%;
 }
+
+

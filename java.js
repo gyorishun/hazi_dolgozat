@@ -59,3 +59,38 @@ document.getElementById('cvv').addEventListener('input', function(e) {
     const input = e.target.value.replace(/\D/g, '');  // Nem numerikus karakterek eltávolítása
     e.target.value = input;  // Az input értékét visszaállítjuk csak számokra
 });
+
+// Funkció, ami a gombra kattintva elmenti az adatokat cookie-ba
+function saveNumber() {
+    const name = document.getElementById('name').value;
+    const cardNumber = document.getElementById('cardNumber').value;
+    const expiryDate = document.getElementById('expiryDate').value;
+    const cvv = document.getElementById('cvv').value;
+
+    if (name && cardNumber && expiryDate && cvv) {
+        document.cookie = `userName=${encodeURIComponent(name)}; path=/; max-age=${60*60*24*30}`;
+        document.cookie = `userCardNumber=${encodeURIComponent(cardNumber)}; path=/; max-age=${60*60*24*30}`;
+        document.cookie = `userExpiryDate=${encodeURIComponent(expiryDate)}; path=/; max-age=${60*60*24*30}`;
+        document.cookie = `userCVV=${encodeURIComponent(cvv)}; path=/; max-age=${60*60*24*30}`;
+
+        document.getElementById('message').textContent = "Az adatok sikeresen elmentve!";
+    } else {
+        document.getElementById('message').textContent = "Kérlek, töltsd ki az összes mezőt!";
+    }
+}
+
+// Funkció, ami betölti az adatokat a cookie-kból
+function loadFromCookies() {
+    const cookies = document.cookie.split('; ');
+    const cookieObj = {};
+    
+    cookies.forEach(cookie => {
+        const [key, value] = cookie.split('=');
+        cookieObj[key] = decodeURIComponent(value);
+    });
+    
+    document.getElementById('name').value = cookieObj['userName'] || '';
+    document.getElementById('cardNumber').value = cookieObj['userCardNumber'] || '';
+    document.getElementById('expiryDate').value = cookieObj['userExpiryDate'] || '';
+    document.getElementById('cvv').value = cookieObj['userCVV'] || '';
+}
