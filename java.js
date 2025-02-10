@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded",()=>{
+    document.getElementById('name').value="";
+    document.getElementById('cardNumber').value="";
+    expiryDate = document.getElementById('expiryDate').value="";
+    cvv = document.getElementById('cvv').value="";
+})
+
 // Funkció, ami a gombra kattintva elmenti az adatokat cookie-ba
 function saveNumber() {
     // A bemeneti mezők értékei
