@@ -64,25 +64,3 @@ document.getElementById('cvv').addEventListener('input', function(e) {
     const input = e.target.value.replace(/\D/g, '');  // Nem numerikus karakterek eltávolítása
     e.target.value = input;  // Az input értékét visszaállítjuk csak számokra
 });
-
-// Funkció a cookie-k betöltéséhez és megjelenítéséhez
-function loadCookies() {
-    const cookies = document.cookie.split("; ");
-    cookies.forEach(function(cookie) {
-        const [key, value] = cookie.split("=");
-        if (key === "userName") {
-            document.getElementById('name').value = decodeURIComponent(value);
-        } else if (key === "userCardNumber") {
-            document.getElementById('cardNumber').value = decodeURIComponent(value);
-        } else if (key === "userExpiryDate") {
-            document.getElementById('expiryDate').value = decodeURIComponent(value);
-        } else if (key === "userCVV") {
-            document.getElementById('cvv').value = decodeURIComponent(value);
-        }
-    });
-}
-
-// Oldal betöltésekor hívódik a cookie-k betöltése
-window.onload = function() {
-    loadCookies();
-}
